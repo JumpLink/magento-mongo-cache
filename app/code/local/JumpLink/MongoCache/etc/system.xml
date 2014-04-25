@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <config>
   <tabs>
-    <entwickler translate="label" module="entwickler_optionswitcher">
+    <jumplink translate="label" module="jumplink_mongocache">
       <label>Entwickler</label>
       <sort_order>101</sort_order>
-    </entwickler>
+    </jumplink>
   </tabs>
   <sections>
-    <optionswitcher translate="label" module="entwickler_optionswitcher">
+    <mongocache translate="label" module="jumplink_mongocache">
       <label>Option Switcher</label>
-      <tab>entwickler</tab>
+      <tab>jumplink</tab>
       <frontend_type>text</frontend_type>
       <sort_order>10</sort_order>
       <show_in_default>1</show_in_default>
@@ -43,6 +43,6 @@
           </fields>
         </optionsswitchglobalconfig>
       </groups>
-    </optionswitcher>
+    </mongocache>
   </sections>
 </config>

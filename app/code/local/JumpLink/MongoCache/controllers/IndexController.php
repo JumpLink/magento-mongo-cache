@@ -1,5 +1,5 @@
 <?php
-class Entwickler_Optionswitcher_IndexController extends Mage_Core_Controller_Front_Action {
+class JumpLink_MongoCache_IndexController extends Mage_Core_Controller_Front_Action {
  
 	/*
 	* Return Attribut ID after Ajax
@@ -7,7 +7,7 @@ class Entwickler_Optionswitcher_IndexController extends Mage_Core_Controller_Fro
 	* @return null
 	*/
 	function getMessageAction() {
-		echo Mage::helper('entwickler_optionswitcher')->getMessage(); //ruft eine Funktion im Helper auf
+		echo Mage::helper('jumplink_mongocache')->getMessage(); //ruft eine Funktion im Helper auf
 	}	
  
 }
