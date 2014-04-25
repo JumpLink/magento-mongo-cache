@@ -13,7 +13,7 @@
         },
         {
             "type": "vcs",
-            "url" : "git@github.com:colinmollenhour/magento-mongo.git"
+            "url" : "git@github.com:JumpLink/magento-mongo.git"
         }
     ],
     "require": {
