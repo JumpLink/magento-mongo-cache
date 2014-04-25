@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-      "jumplink/magento-api" : "dev-master",
+      "jumplink/magento-api" : "dev-master"
     },
     "license": "MIT",
     "authors": [
