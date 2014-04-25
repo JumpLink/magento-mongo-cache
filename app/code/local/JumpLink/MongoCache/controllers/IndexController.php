@@ -7,7 +7,8 @@ class JumpLink_MongoCache_IndexController extends Mage_Core_Controller_Front_Act
 	* @return null
 	*/
 	function debugAction() {
-		echo Mage::helper('jumplink_mongocache')->getConfig(); //ruft eine Funktion im Helper auf
+		echo Mage::helper('jumplink_mongocache')->getServerString(); //ruft eine Funktion im Helper auf
+    Mage::helper('jumplink_mongocache')->testConnection();
 	}
  
 }
