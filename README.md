@@ -5,4 +5,4 @@ Install
 -------
 
 1. Install the MongoDB PHP Driver
-2. Install this module with Magento Composer Installer
+2. Install this module with Magento Composer Installer: http://docs.mongodb.org/ecosystem/drivers/php/
