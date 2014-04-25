@@ -6,15 +6,10 @@
         {
             "type": "vcs",
             "url" : "git@github.com:JumpLink/magento-api.git"
-        },
-        {
-            "type": "vcs",
-            "url" : "git@github.com:JumpLink/magento-mongo.git"
         }
     ],
     "require": {
       "jumplink/magento-api" : "dev-master",
-      "jumplink/magento-mongo" : "dev-master"
     },
     "license": "MIT",
     "authors": [
