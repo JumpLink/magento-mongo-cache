@@ -19,7 +19,7 @@
     "require": {
       "magento-hackathon/magento-composer-installer":"*",
       "jumplink/magento-api" : "dev-master",
-      "jumplink/magento-api" : "colinmollenhour/magento-mongo"
+      "colinmollenhour/magento-mongo" : "dev-master"
     },
     "license": "MIT",
     "authors": [
