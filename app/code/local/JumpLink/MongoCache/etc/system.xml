@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config>
+  <tabs>
+    <entwickler translate="label" module="entwickler_optionswitcher">
+      <label>Entwickler</label>
+      <sort_order>101</sort_order>
+    </entwickler>
+  </tabs>
+  <sections>
+    <optionswitcher translate="label" module="entwickler_optionswitcher">
+      <label>Option Switcher</label>
+      <tab>entwickler</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>10</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <optionsswitchglobalconfig translate="label">
+          <label>Grundeinstellungen</label>
+          <comment></comment>
+          <sort_order>200</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+		  <comment>
+		  <![CDATA[
+			Text Kommentar
+		  ]]>
+	      </comment>
+          <fields>
+		  	<text translate="label">
+              <label>Text:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+			  <comment>
+                <![CDATA[Beispiel: Hallo Welt]]>
+              </comment>
+            </text>
+          </fields>
+        </optionsswitchglobalconfig>
+      </groups>
+    </optionswitcher>
+  </sections>
+</config>
