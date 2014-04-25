@@ -5,10 +5,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/magento-hackathon/magento-composer-installer"
-        },
-        {
-            "type": "vcs",
             "url" : "git@github.com:JumpLink/magento-api.git"
         },
         {
@@ -17,7 +13,6 @@
         }
     ],
     "require": {
-      "magento-hackathon/magento-composer-installer":"*",
       "jumplink/magento-api" : "dev-master",
       "jumplink/magento-mongo" : "dev-master"
     },
