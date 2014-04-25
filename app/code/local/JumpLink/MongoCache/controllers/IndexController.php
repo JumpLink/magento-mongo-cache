@@ -2,12 +2,12 @@
 class JumpLink_MongoCache_IndexController extends Mage_Core_Controller_Front_Action {
  
 	/*
-	* Return Attribut ID after Ajax
+	* URL: <domain>/mongocache/index/debug
 	*
 	* @return null
 	*/
-	function getMessageAction() {
-		echo Mage::helper('jumplink_mongocache')->getMessage(); //ruft eine Funktion im Helper auf
-	}	
+	function debugAction() {
+		echo Mage::helper('jumplink_mongocache')->getConfig(); //ruft eine Funktion im Helper auf
+	}
  
 }

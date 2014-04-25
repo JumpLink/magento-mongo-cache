@@ -18,7 +18,7 @@
         <use>standard</use>
         <args>
           <module>JumpLink_MongoCache</module>
-          <frontName>optionswitcher</frontName>
+          <frontName>mongocache</frontName>
         </args>
       </jumplink_mongocache>
     </routers>
@@ -35,9 +35,9 @@
               <children>
                 <config>
                   <children>
-                    <optionswitcher>
+                    <mongocache>
                       <title>Mediabox - All</title>
-                    </optionswitcher>
+                    </mongocache>
                   </children>
                 </config>
               </children>

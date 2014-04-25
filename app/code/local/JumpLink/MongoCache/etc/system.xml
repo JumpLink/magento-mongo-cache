@@ -2,13 +2,13 @@
 <config>
   <tabs>
     <jumplink translate="label" module="jumplink_mongocache">
-      <label>Entwickler</label>
+      <label>JumpLink</label>
       <sort_order>101</sort_order>
     </jumplink>
   </tabs>
   <sections>
     <mongocache translate="label" module="jumplink_mongocache">
-      <label>Option Switcher</label>
+      <label>MongoDB</label>
       <tab>jumplink</tab>
       <frontend_type>text</frontend_type>
       <sort_order>10</sort_order>
@@ -16,32 +16,85 @@
       <show_in_website>1</show_in_website>
       <show_in_store>1</show_in_store>
       <groups>
-        <optionsswitchglobalconfig translate="label">
+        <mongocacheglobalconfig translate="label">
           <label>Grundeinstellungen</label>
-          <comment></comment>
           <sort_order>200</sort_order>
           <show_in_default>1</show_in_default>
           <show_in_website>1</show_in_website>
           <show_in_store>1</show_in_store>
-		  <comment>
-		  <![CDATA[
-			Text Kommentar
-		  ]]>
-	      </comment>
+          <comment>
+            <![CDATA[
+              MongoDB Server Settings
+            ]]>
+          </comment>
           <fields>
-		  	<text translate="label">
-              <label>Text:</label>
+            <username translate="label">
+              <label>Username:</label>
               <frontend_type>text</frontend_type>
               <sort_order>1</sort_order>
               <show_in_default>1</show_in_default>
-              <show_in_website>1</show_in_website>
+              <show_in_website>0</show_in_website>
               <show_in_store>0</show_in_store>
-			  <comment>
-                <![CDATA[Beispiel: Hallo Welt]]>
+              <comment>
+                <![CDATA[
+                  Beispiel: Magento
+                ]]>
               </comment>
-            </text>
+            </username>
+            <password translate="label">
+              <label>Password:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>
+                <![CDATA[
+                  Beispiel: 123456
+                ]]>
+              </comment>
+            </password>
+            <host translate="label">
+              <label>Host:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>
+                <![CDATA[
+                  Beispiel: localhost
+                ]]>
+              </comment>
+            </host>
+            <port translate="label">
+              <label>Port:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>
+                <![CDATA[
+                  Beispiel: 27017
+                ]]>
+              </comment>
+            </port>
+            <database translate="label">
+              <label>Database:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>0</show_in_website>
+              <show_in_store>0</show_in_store>
+              <comment>
+                <![CDATA[
+                  Beispiel: magento
+                ]]>
+              </comment>
+            </database>
           </fields>
-        </optionsswitchglobalconfig>
+        </mongocacheglobalconfig>
       </groups>
     </mongocache>
   </sections>
