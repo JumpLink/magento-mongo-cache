@@ -1,2 +1,3 @@
 app/code/local/JumpLink/MongoCache/                          app/code/local/JumpLink/MongoCache/
 app/etc/modules/JumpLink_MongoCache.xml                      app/etc/modules/JumpLink_MongoCache.xml
+shell/JumpLink/MongoCache/                                   shell/JumpLink/MongoCache/
