@@ -1,11 +1,11 @@
 <?php
 class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
- 
+
 	var $username;
 	var $password;
-  var $host;
-  var $port;
-  var $database;
+	var $host;
+	var $port;
+	var $database;
 	/*
 	* Constructor
 	*
@@ -18,7 +18,7 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 		$this->port = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/port',Mage::app()->getStore());
 		$this->database = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/database',Mage::app()->getStore());
 	}
- 
+
 	/*
 	* Gibt String zurück
 	*
@@ -30,21 +30,21 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 
 	public function connect() {
 		try {
-		  // open connection to MongoDB server
-		  return new Mongo($this->getServerString());
+			// open connection to MongoDB server
+			return new Mongo($this->getServerString());
 		} catch (MongoConnectionException $e) {
-		  die('Error connecting to MongoDB server');
+			die('Error connecting to MongoDB server');
 		} catch (MongoException $e) {
-		  die('Error: ' . $e->getMessage());
+			die('Error: ' . $e->getMessage());
 		}
 	}
 
 	public function getDB($conn) {
 		try {
-		  // access database
-		  return $conn->selectDB($this->database);
+			// access database
+			return $conn->selectDB($this->database);
 		} catch (MongoException $e) {
-		  die('Error: ' . $e->getMessage());
+			die('Error: ' . $e->getMessage());
 		}
 	}
 
@@ -55,13 +55,13 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 	*/
 	public function testConnection() {
 		try {
-		  // open connection to MongoDB server
-		  $conn = $this->connect();
-		  // access database
-		  $db = $this->getDB($conn);
+			// open connection to MongoDB server
+			$conn = $this->connect();
+			// access database
+			$db = $this->getDB($conn);
 
-		  // access collection
-		  $products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
+			// access collection
+			$products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
 
 			// execute query
 			// retrieve all documents
@@ -76,14 +76,14 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 				echo '<br/>';
 			}
 
-		  // disconnect from server
-		  $conn->close();
+			// disconnect from server
+			$conn->close();
 		} catch (MongoConnectionException $e) {
-		  die('Error connecting to MongoDB server');
+			die('Error connecting to MongoDB server');
 		} catch (MongoException $e) {
-		  die('Error: ' . $e->getMessage());
+			die('Error: ' . $e->getMessage());
 		}
 	}
 
- 
+
 }
