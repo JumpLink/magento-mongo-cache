@@ -6,6 +6,9 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 	var $host;
 	var $port;
 	var $database;
+
+	var $conn;
+	var $db;
 	/*
 	* Constructor
 	*
@@ -17,6 +20,9 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 		$this->host = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/host',Mage::app()->getStore());
 		$this->port = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/port',Mage::app()->getStore());
 		$this->database = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/database',Mage::app()->getStore());
+
+		$this->conn = $this->connect();
+		$this->setDB();
 	}
 
 	/*
@@ -39,10 +45,10 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 		}
 	}
 
-	public function getDB($conn) {
+	public function setDB() {
 		try {
 			// access database
-			return $conn->selectDB($this->database);
+			$this->db = $this->conn->selectDB($this->database);
 		} catch (MongoException $e) {
 			die('Error: ' . $e->getMessage());
 		}
@@ -60,25 +66,25 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 			var_dump($conn);
 
 			// access database
-			$db = $this->getDB($conn);
+			//$db = $this->getDB();
 			var_dump($db);
 
 			// access collection
-			$products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
-			var_dump($product);
+			// $products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
+			// var_dump($product);
 
-			// execute query
-			// retrieve all documents
-			$cursor = $products->find();
+			// // execute query
+			// // retrieve all documents
+			// $cursor = $products->find();
 
-			// iterate through the result set
-			// print each document
-			echo $cursor->count() . ' document(s) found. <br/>';  
-			foreach ($cursor as $obj) {
-				echo 'Name: ' . $obj['name'] . '<br/>';
-				echo 'Price: ' . $obj['price'] . '<br/>';
-				echo '<br/>';
-			}
+			// // iterate through the result set
+			// // print each document
+			// echo $cursor->count() . ' document(s) found. <br/>';  
+			// foreach ($cursor as $obj) {
+			// 	echo 'Name: ' . $obj['name'] . '<br/>';
+			// 	echo 'Price: ' . $obj['price'] . '<br/>';
+			// 	echo '<br/>';
+			// }
 
 
 			// disconnect from server

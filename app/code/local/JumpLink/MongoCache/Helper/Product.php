@@ -1,7 +1,8 @@
 <?php
 class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
  
-  var $api;
+  var $sql;       // MySQL Productx
+  var $mongo;  // MongoDB Products Collection
 
   /*
   * Constructor
@@ -9,22 +10,25 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
   *
   */
   public function __construct() {
-    $this->api  = new JumpLink_API_Model_Product_Api;
+    $this->sql  = new JumpLink_API_Model_Product_Api;
   }
 
-  public function getCollection($db) {
-    //return $db->selectCollection('products');
-    //return $db->products;
-    return new MongoCollection($db, 'products');
+  public function setCollection($db) {
+    $this->mongo = new MongoCollection($db, 'products');
+  }
+
+  public function getCollection() {
+    return $this->mongo;
   }
  
-  /*
-  * Gibt String zurück
-  *
-  * @return string
-  */
   public function updateOrCreate($newProduct) {
-
+    $result = $this->mongo->update(array("id" => $newProduct['id']), $newProduct, array('upsert' => true));
+    var_dump($result);
+    return $result;
+/*    $cursor = $this->mongo->find(array("id" => $newProduct['id']));
+    if ($cursor.count() >= 1) {
+      $this->mongo->update(array("id" => $newProduct['id']), $newProduct, array('upsert' => true));
+    }*/
   }
 
   public function updateOnChanges($id, $newProduct, $oldProduct) {
@@ -32,38 +36,30 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
   }
 
   // exportOneToCacheByID
-  public function importOneByID($id) {
-
-  }
-
-  // getProductList
-  public function getList() {
-    $productId = null;
+  public function importOneByID($productId) {
     $store = null;
     $all_stores = true;
     $attributes = null;
     $identifierType = 'id';  // id | sku
     $integrate_set = false;
     $normalize = true;
-    $filters = null;
 
-    //$result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
-    $result = $this->api->items($filters, $store);
-
-    return $result;
+    $info = $this->sql->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+    $this->updateOrCreate($info);
   }
+
 
   // exportEachByProductList
   public function importByList($productList) {
     foreach ($productList as $key => $product) {
-      print("======= product =======\n");
-      var_dump($product);
+      print("import product by id: ".$product['id']."\n");
+      $this->importOneByID($product['id']);
     }
   }
 
   // exportToCache
   public function import() {
-    $list = $this->getList();
+    $list = $this->sql->items($filters, $store);
     //var_dump($list);
     $this->importByList($list);
   }
