@@ -18,6 +18,8 @@ if (file_exists($autoload = './../../../../../../vendor/autoload.php')) {
 }
 
 
+ini_set('memory_limit', '1000M');
+
 class MongoDBShellScripts extends Mage_Shell_Abstract {
 
   protected $mongo;
