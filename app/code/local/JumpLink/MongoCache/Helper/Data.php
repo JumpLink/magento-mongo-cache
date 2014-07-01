@@ -25,13 +25,13 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 	* @return string
 	*/
 	public function getServerString() {
-		return "mongodb://".$this->username.":".$this->password."@".$this->host.":".$this->port;
+		return "mongodb://".$this->username.":".$this->password."@".$this->host.":".$this->port."/".$this->database;
 	}
 
 	public function connect() {
 		try {
 			// open connection to MongoDB server
-			return new Mongo($this->getServerString());
+			return new MongoClient($this->getServerString());
 		} catch (MongoConnectionException $e) {
 			die('Error connecting to MongoDB server: ' . $e->getMessage());
 		} catch (MongoException $e) {
@@ -56,9 +56,9 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 	public function testConnection() {
 		try {
 			// open connection to MongoDB server
-			$conn = $this->connect();
+			$$db = $this->connect();
 			// access database
-			$db = $this->getDB($conn);
+			//$db = $this->getDB($conn);
 
 			// access collection
 			$products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
