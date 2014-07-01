@@ -57,6 +57,7 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 		try {
 			// open connection to MongoDB server
 			$db = $this->connect();
+			var_dump($db);
 			// access database
 			//$db = $this->getDB($conn);
 
