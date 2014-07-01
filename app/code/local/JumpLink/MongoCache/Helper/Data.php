@@ -80,6 +80,7 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 				echo '<br/>';
 			}
 
+
 			// disconnect from server
 			$conn->close();
 		} catch (MongoConnectionException $e) {

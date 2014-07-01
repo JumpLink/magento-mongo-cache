@@ -1,13 +1,15 @@
 <?php
 class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
  
+  var $api;
+
   /*
   * Constructor
   *
   *
   */
   public function __construct() {
-
+    $this->api  = new JumpLink_API_Model_Product_Api;
   }
 
   public function getCollection($db) {
@@ -36,12 +38,23 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
 
   // getProductList
   public function getList() {
+    $productId = null;
+    $store = null;
+    $all_stores = true;
+    $attributes = null;
+    $identifierType = 'id';  // id | sku
+    $integrate_set = false;
+    $normalize = true;
 
+    $result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+
+    return $result;
   }
 
   // exportToCache
   public function import() {
-
+    $list = $this->getList();
+    var_dump($list);
   }
 
   // exportEachByProductList

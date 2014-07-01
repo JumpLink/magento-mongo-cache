@@ -36,6 +36,7 @@ class MongoDBShellScripts extends Mage_Shell_Abstract {
   public function run() {
     print $this->mongo->getServerString(); //ruft eine Funktion im Helper auf
     $this->mongo->testConnection();
+    $this->products->import();
   }
 }
 $scripts = new MongoDBShellScripts();
