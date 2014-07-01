@@ -45,8 +45,10 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
     $identifierType = 'id';  // id | sku
     $integrate_set = false;
     $normalize = true;
+    $filters = null;
 
-    $result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+    //$result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+    $result = $this->api->items($filters, $store);
 
     return $result;
   }
