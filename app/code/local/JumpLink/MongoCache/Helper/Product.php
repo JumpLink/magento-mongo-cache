@@ -11,7 +11,8 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
   }
 
   public function getCollection($db) {
-    return $db->selectCollection('productcache');
+    //return $db->selectCollection('product');
+    return $db->products;
   }
  
   /*
