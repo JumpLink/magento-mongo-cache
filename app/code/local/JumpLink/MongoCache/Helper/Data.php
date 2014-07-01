@@ -33,7 +33,7 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 			// open connection to MongoDB server
 			return new Mongo($this->getServerString());
 		} catch (MongoConnectionException $e) {
-			die('Error connecting to MongoDB server');
+			die('Error connecting to MongoDB server: ' . $e->getMessage());
 		} catch (MongoException $e) {
 			die('Error: ' . $e->getMessage());
 		}
