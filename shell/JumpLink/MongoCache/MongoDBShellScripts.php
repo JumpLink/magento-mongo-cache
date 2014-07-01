@@ -18,8 +18,6 @@ if (file_exists($autoload = './../../../../../../vendor/autoload.php')) {
 }
 
 
-ini_set('memory_limit', '1000M');
-
 class MongoDBShellScripts extends Mage_Shell_Abstract {
 
   protected $mongo;
@@ -36,6 +34,7 @@ class MongoDBShellScripts extends Mage_Shell_Abstract {
   }
 
   public function run() {
+    ini_set('memory_limit', '1000M');
     print $this->mongo->getServerString(); //ruft eine Funktion im Helper auf
     $this->mongo->testConnection();
     $this->products->import();
