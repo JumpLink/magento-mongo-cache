@@ -47,21 +47,25 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
     $normalize = true;
     $filters = null;
 
-    $result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
-    //$result = $this->api->items($filters, $store);
+    //$result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+    $result = $this->api->items($filters, $store);
 
     return $result;
+  }
+
+  // exportEachByProductList
+  public function importByList($productList) {
+    foreach ($productList as $key => $product) {
+      print("======= product =======\n");
+      var_dump($product);
+    }
   }
 
   // exportToCache
   public function import() {
     $list = $this->getList();
-    var_dump($list);
-  }
-
-  // exportEachByProductList
-  public function importByList($productList) {
-
+    //var_dump($list);
+    $this->importByList($list);
   }
 
  
