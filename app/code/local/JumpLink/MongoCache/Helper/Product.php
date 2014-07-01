@@ -47,8 +47,8 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
     $normalize = true;
     $filters = null;
 
-    //$result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
-    $result = $this->api->items($filters, $store);
+    $result = $this->api->export($productId, $store, $all_stores, $attributes, $identifierType, $integrate_set, $normalize);
+    //$result = $this->api->items($filters, $store);
 
     return $result;
   }
