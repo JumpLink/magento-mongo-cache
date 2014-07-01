@@ -56,10 +56,12 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 	public function testConnection() {
 		try {
 			// open connection to MongoDB server
-			$db = $this->connect();
-			var_dump($db);
+			$conn = $this->connect();
+			var_dump($conn);
+
 			// access database
-			//$db = $this->getDB($conn);
+			$db = $this->getDB($conn);
+			var_dump($db);
 
 			// access collection
 			$products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
