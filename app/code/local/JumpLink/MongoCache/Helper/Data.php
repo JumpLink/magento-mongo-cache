@@ -62,6 +62,7 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 
 			// access collection
 			$products = Mage::helper('jumplink_mongocache/product')->getCollection($db);
+			var_dump($product);
 
 			// execute query
 			// retrieve all documents
