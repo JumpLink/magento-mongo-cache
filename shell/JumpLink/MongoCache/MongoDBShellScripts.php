@@ -26,7 +26,9 @@ class MongoDBShellScripts extends Mage_Shell_Abstract {
   public function __construct () {
     parent::__construct();
     $this->mongo = Mage::helper('jumplink_mongocache');
+    $db = $this->mongo->getDB();
     $this->products = Mage::helper('jumplink_mongocache/product');
+    $this->products->init($db);
   }
 
   public function info() {
@@ -34,9 +36,9 @@ class MongoDBShellScripts extends Mage_Shell_Abstract {
   }
 
   public function run() {
-    //ini_set('memory_limit', '1000M');
-    print $this->mongo->getServerString(); //ruft eine Funktion im Helper auf
+    ini_set('memory_limit', '-1');
     $this->mongo->testConnection();
+
     $this->products->import();
   }
 }
