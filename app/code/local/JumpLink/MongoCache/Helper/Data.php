@@ -22,8 +22,8 @@ class JumpLink_MongoCache_Helper_Data extends Mage_Core_Helper_Abstract {
 		$this->database = Mage::getStoreConfig('mongocache/mongocacheglobalconfig/database',Mage::app()->getStore());
 
 		if(isset($this->username) && isset($this->username) && isset($this->password) && isset($this->host) && isset($this->port) && isset($this->database)) {
-		$this->conn = $this->connect();
-		$this->setDB();
+			$this->conn = $this->connect();
+			$this->setDB();
 		}
 	}
 

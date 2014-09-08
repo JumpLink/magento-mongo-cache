@@ -39,6 +39,7 @@ class MongoDBShellScripts extends Mage_Shell_Abstract {
     ini_set('memory_limit', '-1');
     $this->mongo->testConnection();
 
+    $this->products->setCollection($this->mongo->db);
     $this->products->import();
   }
 }

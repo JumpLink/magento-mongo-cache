@@ -9,8 +9,11 @@ class JumpLink_MongoCache_Helper_Product extends Mage_Core_Helper_Abstract {
   *
   *
   */
-  public function init($db) {
+  public function __construct() {
     $this->sql  = new JumpLink_API_Model_Product_Api;
+  }
+
+  public function setCollection($db) {
     $this->mongo = new MongoCollection($db, 'products');
   }
 
